@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #8fe4ee, #8fe4ee);
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: rgb(2, 0, 0);
+    font-size: 2.5em;
+}
+
+p {
+    color: #2c3e50;
+}
+
+select, textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    background-color: #69cee2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4fb0c4;
+}
+
+#tips, #listaComentarios {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    margin: 15px auto;
+}
+.card {
+    background: white;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.emociones button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Ansiedad */
+.ansiedad {
+    background-color: #9834db;
+}
+
+/* Tristeza */
+.tristeza {
+    background-color: #73c9f1;
+}
+
+/* Estrés */
+.estres {
+    background-color: #ea7a18;
+}
+
+/* Bienestar */
+.bienestar {
+    background-color: #199728;
+}
+.emociones button:hover{
+    opacity:0.8;
+}
+#infoEmocion {
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: none;
+}
+.info-ansiedad {
+    background: linear-gradient(to right, #9834db, #9834db);
+    color: white;
+}
+
+.info-tristeza {
+    background: linear-gradient(to right, #73c9f1, #73c9f1);
+    color: white;
+}
+
+.info-estres {
+    background: linear-gradient(to right, #ea7a18, #ea7a18);
+    color: white;
+}
+
+.info-bienestar {
+    background: linear-gradient(to right, #199728, #199728);
+    color: white;
+}
+#contenidoPrincipal {
+    display: none;
+}

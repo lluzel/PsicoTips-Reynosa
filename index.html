@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>PsicoTips Reynosa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1> PsicoTips Reynosa</h1>
+    <h2> Información sobre emociones</h2>
+
+<div class="emociones">
+
+    <button class="ansiedad"
+    onclick="mostrarInfo('ansiedad')"> Ansiedad</button>
+    <button class="tristeza"
+   onclick= "mostrarInfo('tristeza')"> Tristeza</button>
+    <button class="estres"
+    onclick="mostrarInfo('estres')"> Estrés</button>
+    <button class="bienestar"
+    onclick="mostrarInfo('bienestar')">Bienestar</button>
+
+</div>
+
+<div id="infoEmocion"></div>
+<button id="btnEntrar" onclick="mostrarContenido()">
+    Entrar al espacio seguro 
+</button>
+
+<div id="contenidoPrincipal">
+
+    <p>Un espacio seguro para jóvenes de Reynosa </p>
+
+    <div id="contenidoPrincipal"></div>
+    <h2>¿Cómo te sientes hoy?</h2>
+<select id="tema">
+    <option value="" disabled selected>Selecciona una opción...</option>
+    <option value="seguridad">Estrés por seguridad</option>
+    <option value="familia">Problemas familiares/económicos</option>
+    <option value="ansiedad">Ansiedad por el entorno</option>
+    <option value="bullying">Bullying / presión social</option>
+    <option value="escuela">Estrés escolar</option>
+</select>
+
+    <button onclick="mostrarTips()">Ver consejos</button>
+
+    <div id="tips"></div>
+
+    <hr>
+
+    <h2>Escribe lo que sientes (anónimo)</h2>
+    <textarea id="comentario" placeholder="Escribe aquí..."></textarea><br>
+    <button onclick="guardarComentario()">Publicar</button>
+
+    <h3> Comentarios</h3>
+    <div id="listaComentarios"></div>
+    <hr>
+    <h2> Test emocional</h2>
+
+<p>Responde este test para orientarte sobre cómo te sientes:</p>
+
+<p>1. ¿Qué es lo que más te afecta últimamente?</p>
+<select id="p1">
+    <option value="" disabled selected>Elige tu respuesta...</option>
+    <option value="seguridad">La situación de seguridad</option>
+    <option value="familia">Problemas familiares</option>
+    <option value="escuela">Estrés escolar</option>
+    <option value="social">Presión social o bullying</option>
+</select>
+
+<p>2. ¿Cómo reaccionas normalmente ante el estrés?</p>
+<select id="p2">
+    <option value="" disabled selected>Elige tu respuesta...</option>
+    <option value="guardar">Me lo guardo</option>
+    <option value="hablar">Hablo con alguien</option>
+    <option value="llorar">Lloro o me desespero</option>
+    <option value="distraer">Me distraigo con algo</option>
+</select>
+
+<p>3. ¿Sientes que tienes apoyo de alguien?</p>
+<select id="p3">
+    <option value="" disabled selected>Elige tu respuesta...</option>
+    <option value="si">Sí, cuento con alguien</option>
+    <option value="no">No, me siento solo/a</option>
+</select>
+<button onclick="evaluarTest()">Ver resultado</button>
+
+<div id="resultadoTest"></div>
+
+<p style="font-size: 12px;">
+Este test es orientativo y no reemplaza ayuda profesional 
+</p>
+
+<h2> Psicólogos en Reynosa</h2>
+
+<div id="psicologos">
+
+    <div class="card">
+        <h3>Psicólogo Samuel Briones</h3>
+        <p> París, Luxemburgo, Beatty, Reynosa</p>
+        <p> 8999680571</p>
+        <p> Ansiedad, depresión y autoestima</p>
+    </div>
+
+    <div class="card">
+        <h3>Psicóloga Yesenia Torres García</h3>
+        <p> Col. Antonio J. Bermúdez, Reynosa</p>
+        <p> 8994137388</p>
+        <p> Problemas emocionales y familiares</p>
+    </div>
+
+    <div class="card">
+        <h3>Psicoterapeuta Angela Adriana Hernández</h3>
+        <p> Col. Luis Donaldo Colosio, Reynosa</p>
+        <p> 8991111623</p>
+        <p> Terapia emocional y psicológica</p>
+    </div>
+
+    <div class="card">
+        <h3>Psicólogo Homero Escamilla</h3>
+        <p> Centro, Reynosa</p>
+        <p> 8992522844</p>
+        <p> Terapia individual</p>
+    </div>
+
+    <div class="card">
+        <h3>María Fernanda Calvillo Tejeda</h3>
+        <p> Las Fuentes, Reynosa</p>
+        <p> 8999126519</p>
+        <p> Atención a jóvenes</p>
+    </div>
+
+    <div class="card">
+        <h3>Centro Psicológico 360</h3>
+        <p> Col. Rodríguez, Reynosa</p>
+        <p> 8994700809</p>
+        <p> Ansiedad, depresión, estrés y familia</p>
+    </div>
+
+    <div class="card">
+        <h3>Centro Neurológico y Psicológico</h3>
+        <p> Col. Rodríguez, Reynosa</p>
+        <p> 8999252225</p>
+        <p> Atención psicológica integral</p>
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
