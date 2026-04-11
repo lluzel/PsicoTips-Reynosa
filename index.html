@@ -150,5 +150,47 @@ Este test es orientativo y no reemplaza ayuda profesional
 </div>
 
     <script src="script.js"></script>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBKCvpUAGqlBoz5tTcrdcUtYg2MBfUDrh0",
+  authDomain: "psicotips-reynosa.firebaseapp.com",
+  projectId: "psicotips-reynosa",
+  storageBucket: "psicotips-reynosa.firebasestorage.app",
+  messagingSenderId: "763204614429",
+  appId: "1:763204614429:web:5f07c13341e7ea9d6549f4"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// GUARDAR
+window.guardarComentario = async function() {
+  const texto = document.getElementById("comentario").value;
+
+  await addDoc(collection(db, "respuestas"), {
+    mensaje: texto,
+    fecha: new Date()
+  });
+
+  alert("Guardado");
+};
+
+// MOSTRAR
+window.cargarComentarios = async function() {
+  const contenedor = document.getElementById("listaComentarios");
+  contenedor.innerHTML = "";
+
+  const querySnapshot = await getDocs(collection(db, "respuestas"));
+
+  querySnapshot.forEach((doc) => {
+    const p = document.createElement("p");
+    p.textContent = doc.data().mensaje;
+    contenedor.appendChild(p);
+  });
+};
+</script>
 </body>
 </html>
