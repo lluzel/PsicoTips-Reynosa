@@ -124,11 +124,11 @@ function mostrarInfo(tipo) {
         info.classList.add("info-ansiedad");
     } 
     else if (tipo === "tristeza") {
-        info.innerText = "La tristeza es una emoción humana basica y natural, se caracteriza por sentimientos de desanimo, perdida o dolor emocional.";
+        info.innerText = "La tristeza es una emoción humana básica y natural, se caracteriza por sentimientos de desánimo, pérdida o dolor emocional.";
         info.classList.add("info-tristeza");
     } 
     else if (tipo === "estres") {
-        info.innerText = "El estrés es una reaccion fisica y mental natural del cuerpo ante desafios, amenazas o demandas.";
+        info.innerText = "El estrés es una reacción física y mental natural del cuerpo ante desafíos, amenazas o demandas.";
         info.classList.add("info-estres");
     } 
     else if (tipo === "bienestar") {
