@@ -172,20 +172,27 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // GUARDAR
-        window.guardarComentario = async function() {
+       window.guardarComentario = async function() {
   const texto = document.getElementById("comentario").value;
-  const nombre= document.getElementByld("nombre").value;
+  const nombre = document.getElementById("nombre").value;
 
-await addDoc(collection(db, "respuestas"), {
-  mensaje: texto,
-  nombre: nombre || "Anónimo",
-  fecha: new Date()
-  
+  if (texto === "") {
+    alert("Escribe algo primero");
+    return;
+  }
 
+  await addDoc(collection(db, "respuestas"), {
+    mensaje: texto,
+    nombre: nombre || "Anónimo",
+    fecha: new Date()
   });
 
   alert("Guardado");
-    cargarComentarios();
+
+  document.getElementById("comentario").value = "";
+  document.getElementById("nombre").value = "";
+
+  cargarComentarios();
 };
 
 // MOSTRAR
