@@ -52,8 +52,13 @@
     <hr>
 
     <h2>Escribe lo que sientes (anónimo)</h2>
-    <textarea id="comentario" placeholder="Escribe aquí..."></textarea><br>
-    <button onclick="guardarComentario()">Publicar</button>
+
+<p><b>No uses tu nombre real, este espacio es anónimo</b></p>
+
+<input type="text" id="nombre" placeholder="Nombre (opcional)"><br><br>
+
+<textarea id="comentario" placeholder="Escribe aquí..."></textarea><br>
+<button onclick="guardarComentario()">Publicar</button>
 
     <h3> Comentarios</h3>
     <div id="listaComentarios"></div>
@@ -167,12 +172,16 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // GUARDAR
-window.guardarComentario = async function() {
+        window.guardarComentario = async function() {
   const texto = document.getElementById("comentario").value;
+  const nombre= document.getElementByld("nombre").value;
 
-  await addDoc(collection(db, "respuestas"), {
-    mensaje: texto,
-    fecha: new Date()
+await addDoc(collection(db, "respuestas"), {
+  mensaje: texto,
+  nombre: nombre || "Anónimo",
+  fecha: new Date()
+  
+
   });
 
   alert("Guardado");
