@@ -15,60 +15,6 @@ function mostrarTips() {
     let tema = document.getElementById("tema").value;
     document.getElementById("tips").innerText = tipsData[tema];
 }
-
-function guardarComentario() {
-    let texto = document.getElementById("comentario").value;
-
-    if (texto === "") {
-        alert("Escribe algo primero");
-        return;
-    }
-
-    let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
-
-    comentarios.push({ texto: texto, likes: 0 });
-
-    localStorage.setItem("comentarios", JSON.stringify(comentarios));
-
-    document.getElementById("comentario").value = "";
-
-    mostrarComentarios();
-}
-
-function mostrarComentarios() {
-    let lista = document.getElementById("listaComentarios");
-    lista.innerHTML = "";
-
-    let comentarios = JSON.parse(localStorage.getItem("comentarios")) || [];
-
-    comentarios.forEach((c, index) => {
-        let div = document.createElement("div");
-
-        let p = document.createElement("p");
-        p.innerText = "💬 " + c.texto;
-
-        let btn = document.createElement("button");
-        btn.innerText = "👍 " + c.likes;
-        btn.onclick = () => darLike(index);
-
-        div.appendChild(p);
-        div.appendChild(btn);
-
-        lista.appendChild(div);
-    });
-}
-
-function darLike(index) {
-    let comentarios = JSON.parse(localStorage.getItem("comentarios"));
-
-    comentarios[index].likes++;
-
-    localStorage.setItem("comentarios", JSON.stringify(comentarios));
-
-    mostrarComentarios();
-}
-
-mostrarComentarios();
 function evaluarTest() {
     let p1 = document.getElementById("p1").value;
     let p2 = document.getElementById("p2").value;
