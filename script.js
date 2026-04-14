@@ -19,10 +19,13 @@ function evaluarTest() {
     let p1 = document.getElementById("p1").value;
     let p2 = document.getElementById("p2").value;
     let p3 = document.getElementById("p3").value;
+    let p4 = document.getElementById("p4").value;
+    let p5 = document.getElementById("p5").value;
+    let p6 = document.getElementById("p6").value;
 
-    let resultado = document.getElementById("resultadoTest");
+   let resultado = document.getElementById("resultadoTest");
 
-    if (p1 === "" || p2 === "" || p3 === "") {
+    if (p1 === "" || p2 === "" || p3 === "" || p4 === "" || p5 === "" || p6 === "") {
         resultado.innerText = "Responde todas las preguntas para ver tu resultado.";
         return;
     }
@@ -53,6 +56,14 @@ function evaluarTest() {
     else if (p2 === "enojo") {
         resultado.innerText = "Sentir enojo es válido, pero intenta canalizarlo de forma sana como respirar o darte un momento.";
     } 
+    else if (p5 === "diario") {
+    resultado.innerText = "Parece que te sientes así muy seguido. Sería buena idea buscar apoyo y darte momentos para descansar emocionalmente.";
+    }
+    else if (p4 === "aislar") {
+    resultado.innerText = "Aislarte puede hacer que te sientas peor. Intenta poco a poco acercarte a alguien de confianza.";
+    }
+    else if (p6 === "no_se") {
+    resultado.innerText = "No saber qué hacer es válido. Puedes empezar con cosas pequeñas como hablar con alguien o darte un momento para ti.";   
     else {
         resultado.innerText = "Vas bien, sigue cuidando tu bienestar emocional ";
     }
