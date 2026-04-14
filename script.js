@@ -1,4 +1,3 @@
-localStorage.clear();
 const tipsData = {
     seguridad: "Es normal sentirte en alerta cuando el entorno no es tranquilo. Trata de limitar cuánto consumes noticias negativas y busca espacios donde te sientas seguro, como tu casa o con personas de confianza.",
 
