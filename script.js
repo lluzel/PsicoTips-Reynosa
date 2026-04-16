@@ -64,6 +64,7 @@ function evaluarTest() {
     }
     else if (p6 === "no_se") {
     resultado.innerText = "No saber qué hacer es válido. Puedes empezar con cosas pequeñas como hablar con alguien o darte un momento para ti.";   
+    }
     else {
         resultado.innerText = "Vas bien, sigue cuidando tu bienestar emocional ";
     }
