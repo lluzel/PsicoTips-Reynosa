@@ -135,9 +135,10 @@ body {
 }
 
 .barra h1 {
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
     color: black;
     font-size: 24px;
     margin: 0;
-    width: 100%;
-    text-align: center;
 }
