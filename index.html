@@ -250,7 +250,7 @@ btn.textContent = "💙 Me ayudó (" + (data.ayuda || 0) + ")";
 btn.onclick = async () => {
     const nuevaAyuda = (data.ayuda || 0) + 1;
 
-    await updateDoc(doc.ref, {
+    await updateDoc(doc(db, "respuestas",docItem.id), {
         ayuda: nuevaAyuda
     });
 
