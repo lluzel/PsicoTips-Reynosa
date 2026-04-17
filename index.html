@@ -182,9 +182,7 @@ Este test es orientativo y no reemplaza ayuda profesional
 
     <script src="script.js"></script>
     <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 const firebaseConfig = {
   apiKey: "AIzaSyBKCvpUAGqlBoz5tTcrdcUtYg2MBfUDrh0",
   authDomain: "psicotips-reynosa.firebaseapp.com",
@@ -246,9 +244,6 @@ small.textContent = fecha;
 const btn = document.createElement("button");
 btn.textContent = "💙 Me ayudó (" + (data.ayuda || 0) + ")";
 
-btn.onclick = () => {
-    alert("Gracias por apoyar 💙");
-};
 
 div.appendChild(btn);
       
