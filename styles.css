@@ -129,9 +129,8 @@ body {
 
 .logo {
     width: 200px; /* tamaño del logo */
-    height: auto;
-    display: block;
-    margin: 20px auto;
+    height: 200px;
+    margin-right: 15px;
 }
 
 .barra h1 {
