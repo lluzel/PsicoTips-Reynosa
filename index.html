@@ -244,7 +244,15 @@ small.textContent = fecha;
 const btn = document.createElement("button");
 btn.textContent = "💙 Me ayudó (" + (data.ayuda || 0) + ")";
 
+btn.onclick = async () => {
+    const nuevaAyuda = (data.ayuda || 0) + 1;
 
+    await updateDoc(doc.ref, {
+        ayuda: nuevaAyuda
+    });
+
+    cargarComentarios();
+};
 div.appendChild(btn);
       
 div.appendChild(p);
