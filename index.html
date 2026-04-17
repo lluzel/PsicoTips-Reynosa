@@ -57,7 +57,8 @@
 <input type="text" id="nombre" placeholder="Nombre (opcional)"><br><br>
 
 <textarea id="comentario" placeholder="Escribe aquí..."></textarea><br>
-<button id="btnPublicar">Publicar</button>
+<button onclick ="guardarComentarios()">Publicar</button>
+
 
     <h3> Comentarios</h3>
     <div id="listaComentarios"></div>
@@ -263,7 +264,6 @@ contenedor.appendChild(div);
   });
 };
         cargarComentarios();
-        document.getElementById("btnPublicar").addEventListener("click", guardarComentario);
 </script>
 </body>
 </html>
