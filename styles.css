@@ -121,7 +121,7 @@ body {
     background-attachment: fixed;
 }
 .barra {
-    background-color: transparent;
+    background-color: #89d6a4; /* verde bonito */
     display: flex;
     align-items: center;
     padding: 10px 20px;
@@ -130,15 +130,11 @@ body {
 .logo {
     width: 150px; /* tamaño del logo */
     height: 150px;
-    position:absolute;
-    left: 20px;
+    margin-right: 15px;
 }
 
 .barra h1 {
-    position:absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    color: black;
-    font-size: 28px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
     margin: 0;
 }
