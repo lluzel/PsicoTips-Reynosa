@@ -121,7 +121,7 @@ body {
     background-attachment: fixed;
 }
 .barra {
-    background-color: #f6aed8; /* rosa bonito */
+    background-color: transparent;
     display: flex;
     align-items: center;
     padding: 10px 20px;
