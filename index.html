@@ -229,8 +229,9 @@ window.cargarComentarios = async function() {
 
   const querySnapshot = await getDocs(collection(db, "respuestas"));
 
-  querySnapshot.forEach((doc) => {
-    const p = document.createElement("p");
+  querySnapshot.forEach((docItem) => {
+    const data= docItem.data();
+      
    const div = document.createElement("div");
 
 let fecha = "";
