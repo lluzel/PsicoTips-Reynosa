@@ -121,7 +121,7 @@ body {
     background-attachment: fixed;
 }
 .barra {
-    background-color: #89d6a4; /* verde bonito */
+    background-color: transparent;
     display: flex;
     align-items: center;
     padding: 10px 20px;
