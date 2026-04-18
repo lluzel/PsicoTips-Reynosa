@@ -156,3 +156,28 @@ body {
 
     z-index: 9999; 
 }
+#pantallaInicio {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.logoInicio {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+#pantallaInicio h1 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.bienvenida {
+    font-size: 16px;
+    max-width: 350px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
