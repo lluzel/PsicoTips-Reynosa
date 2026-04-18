@@ -100,7 +100,7 @@ function mostrarContenido() {
     contenido.style.display = "block";
     boton.style.display = "none";
 }
-function entrar() {
+function entrarPagina() {
     document.getElementById("pantallaInicio").style.display = "none";
     document.getElementById("pantallaContenido").style.display = "block";
 }
