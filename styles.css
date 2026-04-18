@@ -138,3 +138,14 @@ body {
     font-size: 24px;
     margin: 0;
 }
+.inicio {
+    background-image: url("fondoInicio.jpg"); /* tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
