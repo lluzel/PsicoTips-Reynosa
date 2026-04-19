@@ -135,7 +135,7 @@ body {
 @media (max-width: 600px) {
      #pantallaInicio { 
         justify-content: flex-start;
-        padding-top: 120px;   
+        padding-top: 150px;   
      }
 }
 
