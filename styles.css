@@ -135,7 +135,7 @@ body {
 @media (max-width: 600px) {
      #pantallaInicio { 
         justify-content: center;
-        transform: translateY(-40px);   
+        transform: translateY(-70px);   
      }
 }
 
