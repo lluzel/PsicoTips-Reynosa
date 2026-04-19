@@ -193,11 +193,3 @@ body {
     line-height: 1.5;
     margin-bottom: 20px;
 }
-html, body {
-    height: 100%;
-    margin: 0;
-}
-
-#pantallaContenido {
-    min-height: 100vh; /* 👈 esto hace que el fondo llegue hasta abajo */
-}
