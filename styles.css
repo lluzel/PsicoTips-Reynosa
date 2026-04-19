@@ -134,9 +134,9 @@ body {
 }
 @media (max-width: 600px) {
      #pantallaInicio { 
-        justify-content: flex-start;
-        padding-top: 80px;
-    }
+        justify-content: center;
+        transform: translateY(-40px);   
+     }
 }
 
 .barra h1 {
