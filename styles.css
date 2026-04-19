@@ -133,10 +133,24 @@ body {
     margin-right: 15px;
 }
 @media (max-width: 600px) {
-     #pantallaInicio { 
+    #pantallaInicio {
         justify-content: flex-start;
-        padding-top: 150px;   
-     }
+        align-items: center;
+        padding-top: 60px;
+    }
+
+    .logoInicio {
+        width: 90px;
+    }
+
+    #pantallaInicio h1 {
+        font-size: 22px;
+    }
+
+    .bienvenida {
+        font-size: 14px;
+        max-width: 90%;
+    }
 }
 
 .barra h1 {
