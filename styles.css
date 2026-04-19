@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #8fe4ee, #8fe4ee);
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -118,7 +118,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 .barra {
     background-color: transparent;
@@ -132,6 +131,12 @@ body {
     height: auto;
     margin-right: 15px;
 }
+#pantallaInicio button {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
 @media (max-width: 600px) {
     .logoInicio {
         width: 100px;
@@ -157,7 +162,9 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    min-heigth: 100dhv;
+    min-heigth: 100dvh;
+
+    position: relative;
 
     background-image: url("fondoInicio.jpg");
     background-size: cover;
@@ -166,17 +173,16 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     text-align: center;
 
-    padding: 0;
 }
 
 .logoInicio {
-    width: 150px;
-    margin-bottom: 10px;
+    width: 120px;
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 #pantallaInicio h1 {
@@ -185,8 +191,10 @@ body {
 }
 
 .bienvenida {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 300px;
     font-size: 16px;
-    max-width: 350px;
     line-height: 1.5;
-    margin-bottom: 20px;
 }
