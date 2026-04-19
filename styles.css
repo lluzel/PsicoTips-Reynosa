@@ -133,10 +133,16 @@ body {
     margin-right: 15px;
 }
 @media (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+    }
+
     #pantallaInicio {
         justify-content: flex-start;
         align-items: center;
-        padding-top: 60px;
+        padding-top: 30px;
+        height: auto;
+        min-height: 100vh;
     }
 
     .logoInicio {
@@ -172,12 +178,12 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     text-align: center;
 
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
 }
 
