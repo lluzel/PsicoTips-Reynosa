@@ -1,8 +1,8 @@
 body {
     font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #8fe4ee, #8fe4ee);
     text-align: center;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 h1 {
@@ -130,10 +130,11 @@ body {
     width: 120px; /* tamaño del logo */
     height: auto;
     margin-right: 15px;
+
 }
 #pantallaInicio button {
     position: absolute;
-    top: 60%;
+    top: 65%;
     transform: translateY(-50%);
 }
 
@@ -152,19 +153,21 @@ body {
     }
 }
 
+
 .barra h1 {
     color: rgb(0, 0, 0);
     font-size: 24px;
     margin: 0;
 }
+
 #pantallaInicio {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    min-heigth: 100dvh;
+    min-height: 100dvh;
 
-    position: relative;
+    position:relative;
 
     background-image: url("fondoInicio.jpg");
     background-size: cover;
@@ -181,8 +184,7 @@ body {
 
 .logoInicio {
     width: 120px;
-    margin-top: 30px;
-    margin-bottom: 0;
+    margin-bottom: 40px;
 }
 
 #pantallaInicio h1 {
