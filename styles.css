@@ -128,7 +128,7 @@ padding: 10px 20px;
 }
 
 .logo {
-width: 120px; /* tamaño del logo */
+width: 180px; /* tamaño del logo */
 height: auto;
 margin-right: 15px;
 }
@@ -141,7 +141,7 @@ padding-top: 60px;
 }
 
 .logoInicio {  
-    width: 120px;  
+    width: 180px;  
 }  
 
 #pantallaInicio h1 {  
@@ -186,7 +186,7 @@ box-sizing: border-box;
 }
 
 .logoInicio {
-width: 150px;
+width: 180px;
 margin-bottom: 10px;
 }
 
