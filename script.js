@@ -104,3 +104,20 @@ function entrarPagina() {
     document.getElementById("pantallaInicio").style.display = "none";
     document.getElementById("pantallaContenido").style.display = "block";
 }
+function entrar() {
+    let nombre = document.getElementById("nombre").value;
+    let gmail = document.getElementById("gmail").value;
+
+    if (nombre === "" || gmail === "") {
+        alert("Completa tu nombre y Gmail");
+        return;
+    }
+
+    if (!gmail.includes("@gmail.com")) {
+        alert("Ingresa un Gmail válido");
+        return;
+    }
+
+    document.getElementById("pantallaInicio").style.display = "none";
+    document.getElementById("contenidoPrincipal").style.display = "block";
+}
