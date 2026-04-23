@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="pantallaInicio"> 
+   <div id="pantallaInicio">
+  <img src="logoInicio.png" class="logoInicio">
 
-    <img src="logoInicio.png" class="logoInicio">
+<h1>PsicoTips Reynosa</h1>
 
-    <h1>PsicoTips Reynosa</h1>
+<p class="bienvenida">
+Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sientes...
+</p>
 
-    <p class="bienvenida">
-    Bienvenido a PsicoTips Reynosa.  
-    En esta página podrás compartir cómo te sientes, reflexionar sobre tus emociones y encontrar orientación para tu bienestar.
-    </p>
+<!-- FORMULARIO -->
+<input type="text" id="nombre" placeholder="Tu nombre">
 
-    <button onclick="entrarPagina()">Entrar</button>
+<input type="email" id="gmail" placeholder="Tu Gmail">
 
-</div> 
+<button onclick="entrar()">Entrar</button>  
+
+</div>  
 
 <div id="pantallaContenido" style="display: none;"></div>
 
