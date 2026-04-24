@@ -104,3 +104,21 @@ function entrarPagina() {
     document.getElementById("pantallaInicio").style.display = "none";
     document.getElementById("pantallaContenido").style.display = "block";
 }
+function entrar() {
+    document.getElementById("pantallaInicio").style.display = "none";
+    document.getElementById("pantallaContenido").style.display = "block";
+
+    // mostrar emociones por defecto
+    mostrarSeccion("seccionEmociones");
+}
+
+function mostrarSeccion(id) {
+
+    let secciones = document.querySelectorAll(".seccion");
+
+    secciones.forEach(sec => {
+        sec.style.display = "none";
+    });
+
+    document.getElementById(id).style.display = "block";
+}
