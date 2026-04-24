@@ -2,26 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" 
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
     <title>PsicoTips Reynosa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <div id="pantallaInicio">
+
+  <div id="pantallaInicio">
   <img src="logoInicio.png" class="logoInicio">
 
 <h1>PsicoTips Reynosa</h1>
 
 <p class="bienvenida">
-Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sientes, reflexionar sobre tus emociones y encontrar orientacion para tu bienestar.
+Bienvenido a PsicoTips Reynosa. En esta página podrás compartir como te sientes, reflexionar sobre tus emociones y encontrar orientacion para tu bienestar.
 </p>
 
 <button onclick="entrar()">Entrar</button>  
-</div>  
+
+</div> 
 
 <div id="pantallaContenido" style="display: none;">
-     <nav class="menu">
+    <nav class="menu">
         <button onclick="mostrarSeccion('seccionEmociones')">Emociones</button>
         <button onclick="mostrarSeccion('seccionTest')">Test</button>
         <button onclick="mostrarSeccion('seccionPsicologos')">Psicologos</button>
@@ -32,9 +34,9 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
     <h1>PsicoTips Reynosa</h1>
 </div>
 
-    <div id="seccionEmociones" class="seccion">
-    <h2> Información sobre emociones</h2>
-        
+<div id="seccionEmociones" class="seccion" style="display:block;">
+    <h2>  Información sobre emociones</h2>
+
 <div class="emociones">
 
     <button class="ansiedad"
@@ -53,7 +55,7 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
     Entrar al espacio seguro 
 </button>
 
-<div id="contenidoPrincipal">
+<div id="contenidoPrincipal" style="display:none;">
 
     <p>Un espacio seguro para jóvenes de Reynosa </p>
 
@@ -80,16 +82,16 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
 <input type="text" id="nombre" placeholder="Nombre (opcional)"><br><br>
 
 <textarea id="comentario" placeholder="Escribe aquí..."></textarea><br>
-<button onclick ="guardarComentarios()">Publicar</button>
-
+<button onclick ="guardarComentario()">Publicar</button>
 
     <h3> Comentarios</h3>
     <div id="listaComentarios"></div>
     <hr>
-    </div>
+</div>
+</div>
 
     <div id="seccionTest" class="seccion" style="display:none;">
-    <h2> Test emocional</h2>
+    <h2>  Test emocional</h2>
 
 <p>Responde este test para orientarte sobre cómo te sientes:</p>
 
@@ -117,8 +119,8 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
     <option value="si">Sí, cuento con alguien</option>
     <option value="no">No, me siento solo/a</option>
 </select>
-    
-  <p>4. ¿Qué haces cuando te sientes mal?</p>
+
+<p>4. ¿Qué haces cuando te sientes mal?</p>
 <select id="p4">
     <option value="" disabled selected>Elige tu respuesta...</option>
     <option value="aislar">Me aíslo</option>
@@ -143,7 +145,7 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
     <option value="tiempo">Tener más tiempo para mí</option>
     <option value="menos">Menos presión</option>
     <option value="no_se">No lo sé</option>
-</select>  
+</select>
 <button onclick="evaluarTest()">Ver resultado</button>
 
 <div id="resultadoTest"></div>
@@ -151,7 +153,8 @@ Bienvenido a PsicoTips Reynosa. En esta página podrás compartir cómo te sient
 <p style="font-size: 12px;">
 Este test es orientativo y no reemplaza ayuda profesional 
 </p>
-    </div>      
+    </div>
+
 <div id="seccionPsicologos" class="seccion" style="display:none;">
 <h2> Psicólogos en Reynosa</h2>
 
@@ -224,7 +227,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // GUARDAR
-       window.guardarComentario = async function() {
+window.guardarComentario = async function() {
   const texto = document.getElementById("comentario").value;
   const nombre = document.getElementById("nombre").value;
 
@@ -233,7 +236,7 @@ const db = getFirestore(app);
     return;
   }
 
-   await addDoc(collection(db, "respuestas"), {
+  await addDoc(collection(db, "respuestas"), {
   mensaje: texto,
   nombre: nombre || "Anónimo",
   fecha: new Date(),
@@ -246,6 +249,7 @@ const db = getFirestore(app);
   document.getElementById("nombre").value = "";
 
   cargarComentarios();
+  
 };
 
 // MOSTRAR
@@ -256,9 +260,9 @@ window.cargarComentarios = async function() {
   const querySnapshot = await getDocs(collection(db, "respuestas"));
 
   querySnapshot.forEach((docItem) => {
-    const data= docItem.data();
-      
-   const div = document.createElement("div");
+    const data = docItem.data();
+
+const div = document.createElement("div");
 
 let fecha = "";
 if (data.fecha) {
@@ -282,15 +286,16 @@ btn.onclick = async () => {
 
     cargarComentarios();
 };
+
 div.appendChild(btn);
-      
+
 div.appendChild(p);
 div.appendChild(small);
 
 contenedor.appendChild(div);
   });
 };
-        cargarComentarios();
+cargarComentarios();
 </script>
 </div>
 </body>
