@@ -228,9 +228,7 @@ margin-bottom: 20px;
     padding: 10px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margib-top: 20px;
-    margin-bottom: 30px;
+    gap: 10px;
 }
 
 .menu button {
