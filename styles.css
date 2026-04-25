@@ -197,15 +197,16 @@ height: auto;
 }
 
 #pantallaInicio h1 {
-font-size: 55px;
-margin-bottom: 20px;  
+font-size: 42px;
+margin-bottom: 18px;  
 }
 
 .bienvenida {
-font-size: 16px;
+font-size:22px;
 line-height: 1.7;
-max-width: 600px;
-margin-bottom: 35px;
+max-width: 520px;
+margin: 0 auto 30px auto;
+text-align: center;
 }
 .fotoPsico {
     width: 120px;
@@ -263,8 +264,8 @@ margin-bottom: 35px;
     background-color: #69cee2;
     color: black;
     border: none;
-    padding: 18px 60px;
-    font-size: 24px;
-    border-radius: 18px;
+    padding: 14px 40px;
+    font-size: 20px;
+    border-radius: 16px;
     cursor: pointer;
 }
