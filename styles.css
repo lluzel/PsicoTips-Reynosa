@@ -179,9 +179,10 @@ background-position: center;
 background-repeat: no-repeat;  
 
 display: flex;  
-flex-direction: column;  
-justify-content: center;  
+justify-self: center;  
 align-items: center;  
+gap: 80px;
+
 
 text-align: center;  
 
@@ -249,4 +250,12 @@ margin-bottom: 20px;
 
 .seccion {
     padding: 20px;
+}
+.inicioTexto {
+    max-width: 450px;
+}
+.inicioLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
