@@ -198,11 +198,12 @@ height: auto;
 
 #pantallaInicio h1 {
 font-size: 42px;
-margin-bottom: 18px;  
+margin-bottom: 18px;
+color: #170aa3;
 }
 
 .bienvenida {
-font-size:22px;
+font-size:24px;
 line-height: 1.7;
 max-width: 520px;
 margin: 0 auto 30px auto;
