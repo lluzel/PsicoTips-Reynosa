@@ -122,3 +122,44 @@ function mostrarSeccion(id) {
 
     document.getElementById(id).style.display = "block";
 }
+function registrarUsuario(){
+
+    let nombre =
+    document.getElementById("nombreRegistro").value;
+
+    let correo =
+    document.getElementById("correoRegistro").value;
+
+    let password =
+    document.getElementById("passwordRegistro").value;
+
+    if(nombre === "" || correo === "" || password === ""){
+
+        alert("Completa todos los campos");
+        return;
+    }
+
+    alert("Usuario registrado");
+
+}
+
+function iniciarSesion(){
+
+    let correo =
+    document.getElementById("correoLogin").value;
+
+    let password =
+    document.getElementById("passwordLogin").value;
+
+    if(correo === "" || password === ""){
+
+        alert("Completa todos los campos");
+        return;
+    }
+
+    document.getElementById("pantallaLogin")
+    .style.display = "none";
+
+    document.getElementById("pantallaContenido")
+    .style.display = "block";
+}
