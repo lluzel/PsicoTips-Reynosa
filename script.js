@@ -122,6 +122,12 @@ function mostrarSeccion(id) {
 
     document.getElementById(id).style.display = "block";
 }
+let usuarioGuardado = {
+    nombre: "",
+    correo: "",
+    password: ""
+};
+
 function registrarUsuario(){
 
     let nombre =
@@ -139,8 +145,11 @@ function registrarUsuario(){
         return;
     }
 
-    alert("Usuario registrado");
+    usuarioGuardado.nombre = nombre;
+    usuarioGuardado.correo = correo;
+    usuarioGuardado.password = password;
 
+    alert("Usuario registrado correctamente");
 }
 
 function iniciarSesion(){
@@ -151,15 +160,21 @@ function iniciarSesion(){
     let password =
     document.getElementById("passwordLogin").value;
 
-    if(correo === "" || password === ""){
+    if(
+        correo === usuarioGuardado.correo &&
+        password === usuarioGuardado.password
+    ){
 
-        alert("Completa todos los campos");
-        return;
+        document.getElementById("pantallaLogin")
+        .style.display = "none";
+
+        document.getElementById("pantallaContenido")
+        .style.display = "block";
+
+    } else {
+
+        alert("Correo o contraseña incorrectos");
+
     }
 
-    document.getElementById("pantallaLogin")
-    .style.display = "none";
-
-    document.getElementById("pantallaContenido")
-    .style.display = "block";
 }
