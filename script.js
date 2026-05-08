@@ -127,8 +127,7 @@ let usuarioGuardado = {
     correo: "",
     password: ""
 };
-
-function registrarUsuario(){
+async function registrarUsuario(){
 
     let nombre =
     document.getElementById("nombreRegistro").value;
@@ -145,11 +144,30 @@ function registrarUsuario(){
         return;
     }
 
-    usuarioGuardado.nombre = nombre;
-    usuarioGuardado.correo = correo;
-    usuarioGuardado.password = password;
+    const respuesta = await fetch(
+        "http://localhost:3000/registro",
 
-    alert("Usuario registrado correctamente");
+        {
+
+            method: "POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body: JSON.stringify({
+                nombre,
+                correo,
+                password
+            })
+
+        }
+    );
+
+    const mensaje = await respuesta.text();
+
+    alert(mensaje);
+
 }
 
 function iniciarSesion(){
