@@ -270,3 +270,26 @@ text-align: center;
     border-radius: 16px;
     cursor: pointer;
 }
+pantallaLogin{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBox{
+    background: #bdefff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 320px;
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.loginBox input{
+    width: 90%;
+}
