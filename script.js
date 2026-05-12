@@ -170,7 +170,7 @@ async function registrarUsuario(){
 
 }
 
-function iniciarSesion(){
+async function iniciarSesion(){
 
     let correo =
     document.getElementById("correoLogin").value;
@@ -178,10 +178,34 @@ function iniciarSesion(){
     let password =
     document.getElementById("passwordLogin").value;
 
-    if(
-        correo === usuarioGuardado.correo &&
-        password === usuarioGuardado.password
-    ){
+    if(correo === "" || password === ""){
+
+        alert("Completa todos los campos");
+        return;
+    }
+
+    const respuesta = await fetch(
+        "http://localhost:3000/login",
+
+        {
+
+            method: "POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body: JSON.stringify({
+                correo,
+                password
+            })
+
+        }
+    );
+
+    const datos = await respuesta.json();
+
+    if(datos.success){
 
         document.getElementById("pantallaLogin")
         .style.display = "none";
