@@ -9,8 +9,51 @@
 </head>
 <body>
 
- <div id="pantallaInicio">
+    <div id="pantallaLogin">
 
+    <h1>PsicoTips Reynosa</h1>
+
+    <div class="cajaLogin">
+
+        <h2>Crear cuenta</h2>
+
+        <input type="text"
+        id="nombreRegistro"
+        placeholder="Nombre de usuario">
+
+        <input type="email"
+        id="correoRegistro"
+        placeholder="Correo">
+
+        <input type="password"
+        id="passwordRegistro"
+        placeholder="Contraseña">
+
+        <button onclick="registrarUsuario()">
+            Registrarse
+        </button>
+
+        <hr>
+
+        <h2>Iniciar sesión</h2>
+
+        <input type="email"
+        id="correoLogin"
+        placeholder="Correo">
+
+        <input type="password"
+        id="passwordLogin"
+        placeholder="Contraseña">
+
+        <button onclick="iniciarSesion()">
+            Entrar </button>
+
+    </div>
+
+</div>
+
+  <div id="pantallaInicio" style="display:none;">
+    
     <div class="inicioTexto">
         <h1>PsicoTips Reynosa</h1>
 
@@ -21,56 +64,28 @@
             para tu bienestar.
         </p>
 
-    
+    <button onclick="entrar()">Entrar</button>
     </div>
 
     <div class="inicioLogo">
         <img src="logoInicio.png" class="logoInicio">
     </div>
+
 </div>
 
-<div id="pantallaLogin">
 
-    <div class="loginBox">
-
-        <h2>Iniciar sesión</h2>
-
-        <input type="text" id="nombreRegistro" placeholder="Nombre">
-
-        <input type="email" id="correoRegistro" placeholder="Correo electrónico">
-
-        <input type="password" id="passwordRegistro" placeholder="Contraseña">
-
-        <button onclick="registrarUsuario()">
-            Registrarse
-        </button>
-
-        <hr>
-
-        <h2>Entrar</h2>
-
-        <input type="email" id="correoLogin" placeholder="Correo">
-
-        <input type="password" id="passwordLogin" placeholder="Contraseña">
-
-        <button onclick="iniciarSesion()">
-            Iniciar sesión
-        </button>
-
-    </div>
-</div>
-    
 <div id="pantallaContenido" style="display: none;">
     <div class="barra">
     <img src="logo.png" class="logo">
     <h1>PsicoTips Reynosa</h1>
 </div>
-    
+
     <nav class="menu">
         <button onclick="mostrarSeccion('seccionEmociones')">Emociones</button>
         <button onclick="mostrarSeccion('seccionTest')">Test</button>
         <button onclick="mostrarSeccion('seccionPsicologos')">Psicologos</button>
     </nav>
+
 
 <div id="seccionEmociones" class="seccion" style="display:block;">
     <h2>  Información sobre emociones</h2>
@@ -248,94 +263,8 @@ Este test es orientativo y no reemplaza ayuda profesional
 
 </div>
 
-    <script src="script.js"></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyBKCvpUAGqlBoz5tTcrdcUtYg2MBfUDrh0",
-  authDomain: "psicotips-reynosa.firebaseapp.com",
-  projectId: "psicotips-reynosa",
-  storageBucket: "psicotips-reynosa.firebasestorage.app",
-  messagingSenderId: "763204614429",
-  appId: "1:763204614429:web:5f07c13341e7ea9d6549f4"
-};
+<script src="script.js"></script>
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// GUARDAR
-window.guardarComentario = async function() {
-  const texto = document.getElementById("comentario").value;
-  const nombre = document.getElementById("nombre").value;
-
-  if (texto === "") {
-    alert("Escribe algo primero");
-    return;
-  }
-
-  await addDoc(collection(db, "respuestas"), {
-  mensaje: texto,
-  nombre: nombre || "Anónimo",
-  fecha: new Date(),
-  ayuda: 0
-});
-
-  alert("Guardado");
-
-  document.getElementById("comentario").value = "";
-  document.getElementById("nombre").value = "";
-
-  cargarComentarios();
-  
-};
-
-// MOSTRAR
-window.cargarComentarios = async function() {
-  const contenedor = document.getElementById("listaComentarios");
-  contenedor.innerHTML = "";
-
-  const querySnapshot = await getDocs(collection(db, "respuestas"));
-
-  querySnapshot.forEach((docItem) => {
-    const data = docItem.data();
-
-const div = document.createElement("div");
-
-let fecha = "";
-if (data.fecha) {
-    fecha = new Date(data.fecha.seconds * 1000).toLocaleString();
-}
-
-const p = document.createElement("p");
-p.textContent = data.nombre + ": " + data.mensaje;
-
-const small = document.createElement("small");
-small.textContent = fecha;
-const btn = document.createElement("button");
-btn.textContent = "💙 Me ayudó (" + (data.ayuda || 0) + ")";
-
-btn.onclick = async () => {
-    const nuevaAyuda = (data.ayuda || 0) + 1;
-
-    await updateDoc(doc(db, "respuestas",docItem.id), {
-        ayuda: nuevaAyuda
-    });
-
-    cargarComentarios();
-};
-
-div.appendChild(btn);
-
-div.appendChild(p);
-div.appendChild(small);
-
-contenedor.appendChild(div);
-  });
-};
-cargarComentarios();
-
-</script>
 </div>
 </body>
 </html>
