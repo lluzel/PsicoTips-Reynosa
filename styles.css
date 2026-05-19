@@ -150,7 +150,7 @@ padding-top: 60px;
 }  
 
 #pantallaInicio h1 {  
-    font-size: 22px;  
+    font-size: 22px; 
 }  
 
 .bienvenida {  
@@ -179,10 +179,9 @@ background-position: center;
 background-repeat: no-repeat;  
 
 display: flex;  
-justify-self: center;  
-align-items: center;  
+justify-self: center;
+align-items: center;
 gap: 30px;
-
 
 text-align: center;  
 
@@ -198,12 +197,12 @@ height: auto;
 
 #pantallaInicio h1 {
 font-size: 42px;
-margin-bottom: 18px;
+margin-bottom: 18;
 color: #170aa3;
 }
 
 .bienvenida {
-font-size:24px;
+font-size: 24px;
 line-height: 1.7;
 max-width: 520px;
 margin: 0 auto 30px auto;
@@ -270,26 +269,49 @@ text-align: center;
     border-radius: 16px;
     cursor: pointer;
 }
-pantallaLogin{
+
+#pantallaLogin{
+
     position: fixed;
+
+    top: 0;
+    left: 0;
+
     width: 100%;
     height: 100vh;
-    background: rgba(0,0,0,0.5);
 
     display: flex;
+    flex-direction: column;
+
     justify-content: center;
     align-items: center;
-}
 
-.loginBox{
-    background: #bdefff;
+    background-image: url("fondoInicio.jpg");
+    background-size: cover;
+    background-position: center;
+
+    z-index: 9999;
+
+    overflow-y: auto;
+
     padding: 30px;
+}
+.cajaLogin{
+
+    background: rgba(255,255,255,0.95);
+
+    padding: 40px;
+
     border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
     width: 320px;
 
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
+    max-height: 90vh;
 
-.loginBox input{
-    width: 90%;
-}
+    overflow-y: auto;
+}}
