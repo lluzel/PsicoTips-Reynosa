@@ -14,6 +14,7 @@ function mostrarTips() {
     let tema = document.getElementById("tema").value;
     document.getElementById("tips").innerText = tipsData[tema];
 }
+
 function evaluarTest() {
     let p1 = document.getElementById("p1").value;
     let p2 = document.getElementById("p2").value;
@@ -22,7 +23,7 @@ function evaluarTest() {
     let p5 = document.getElementById("p5").value;
     let p6 = document.getElementById("p6").value;
 
-   let resultado = document.getElementById("resultadoTest");
+    let resultado = document.getElementById("resultadoTest");
 
     if (p1 === "" || p2 === "" || p3 === "" || p4 === "" || p5 === "" || p6 === "") {
         resultado.innerText = "Responde todas las preguntas para ver tu resultado.";
@@ -57,13 +58,13 @@ function evaluarTest() {
     } 
     else if (p5 === "diario") {
     resultado.innerText = "Parece que te sientes así muy seguido. Sería buena idea buscar apoyo y darte momentos para descansar emocionalmente.";
-    }
-    else if (p4 === "aislar") {
+}
+else if (p4 === "aislar") {
     resultado.innerText = "Aislarte puede hacer que te sientas peor. Intenta poco a poco acercarte a alguien de confianza.";
-    }
-    else if (p6 === "no_se") {
-    resultado.innerText = "No saber qué hacer es válido. Puedes empezar con cosas pequeñas como hablar con alguien o darte un momento para ti.";   
-    }
+}
+else if (p6 === "no_se") {
+    resultado.innerText = "No saber qué hacer es válido. Puedes empezar con cosas pequeñas como hablar con alguien o darte un momento para ti.";
+}
     else {
         resultado.innerText = "Vas bien, sigue cuidando tu bienestar emocional ";
     }
@@ -100,6 +101,24 @@ function mostrarContenido() {
     contenido.style.display = "block";
     boton.style.display = "none";
 }
+//  MÚSICA (NUEVO)
+let reproduciendo = false;
+
+function toggleMusica() {
+    let audio = document.getElementById("musica");
+    let boton = document.getElementById("btnMusica");
+
+    if (!reproduciendo) {
+        audio.play();
+        boton.innerText = "⏸ Pausar música";
+        reproduciendo = true;
+    } else {
+        audio.pause();
+        boton.innerText = "🎵 Activar música";
+        reproduciendo = false;
+    }
+}
+
 function entrarPagina() {
     document.getElementById("pantallaInicio").style.display = "none";
     document.getElementById("pantallaContenido").style.display = "block";
@@ -122,11 +141,13 @@ function mostrarSeccion(id) {
 
     document.getElementById(id).style.display = "block";
 }
+
 let usuarioGuardado = {
     nombre: "",
     correo: "",
     password: ""
 };
+
 async function registrarUsuario(){
 
     let nombre =
@@ -210,8 +231,8 @@ async function iniciarSesion(){
         document.getElementById("pantallaLogin")
         .style.display = "none";
 
-        document.getElementById("pantallaContenido")
-        .style.display = "block";
+        document.getElementById("pantallaInicio")
+        .style.display = "flex";
 
     } else {
 
@@ -220,3 +241,108 @@ async function iniciarSesion(){
     }
 
 }
+
+async function guardarComentario() {
+
+    const nombre =
+    document.getElementById("nombre").value;
+
+    const comentario =
+    document.getElementById("comentario").value;
+
+    if(comentario === ""){
+
+        alert("Escribe un comentario");
+        return;
+    }
+
+    const respuesta = await fetch(
+        "http://localhost:3000/comentarios",
+
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body: JSON.stringify({
+
+                nombre: nombre || "Anónimo",
+                mensaje: comentario
+
+            })
+
+        }
+    );
+
+    const mensaje = await respuesta.text();
+
+    alert(mensaje);
+
+    document.getElementById("comentario").value = "";
+    document.getElementById("nombre").value = "";
+
+    cargarComentarios();
+}
+
+async function cargarComentarios(){
+
+    const respuesta = await fetch(
+        "http://localhost:3000/comentarios"
+    );
+
+    const comentarios = await respuesta.json();
+
+    const lista =
+    document.getElementById("listaComentarios");
+
+    lista.innerHTML = "";
+
+    comentarios.forEach(comentario => {
+
+        const div = document.createElement("div");
+
+        div.classList.add("card");
+
+        div.innerHTML = `
+
+        <p>
+        <strong>${comentario.nombre}</strong>
+        </p>
+
+        <p>${comentario.mensaje}</p>
+
+        <small>
+        ${new Date(comentario.fecha).toLocaleString()}
+        </small>
+
+        <br><br>
+
+        <button onclick="darAyuda(${comentario.id})">
+        💙 Me ayudó (${comentario.ayuda})
+        </button>
+
+        `;
+
+        lista.appendChild(div);
+
+    });
+
+}
+
+async function darAyuda(id){
+
+    await fetch(
+        `http://localhost:3000/comentarios/${id}`,
+
+        {
+            method:"PUT"
+        }
+    );
+
+    cargarComentarios();
+}
+
+cargarComentarios();
+
