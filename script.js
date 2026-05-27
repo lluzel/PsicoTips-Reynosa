@@ -10,12 +10,34 @@ const tipsData = {
     escuela: "El estrés escolar es común. Organiza tu tiempo en partes pequeñas y date descansos. No tienes que hacerlo todo perfecto, solo avanzar poco a poco."
 };
 
+async function guardarResultado(resultadoTexto){
+
+    const usuario = "Usuario";
+
+    await fetch("http://localhost:3000/guardarResultado", {
+
+        method: "POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify({
+            usuario: usuario,
+            resultado: resultadoTexto
+        })
+
+    });
+
+}
+
 function mostrarTips() {
     let tema = document.getElementById("tema").value;
     document.getElementById("tips").innerText = tipsData[tema];
 }
 
 function evaluarTest() {
+
     let p1 = document.getElementById("p1").value;
     let p2 = document.getElementById("p2").value;
     let p3 = document.getElementById("p3").value;
@@ -68,7 +90,13 @@ else if (p6 === "no_se") {
     else {
         resultado.innerText = "Vas bien, sigue cuidando tu bienestar emocional ";
     }
+
+    document.getElementById(
+"seccionDiario"
+).style.display = "block";
+
 }
+
 function mostrarInfo(tipo) {
     let info = document.getElementById("infoEmocion");
 
@@ -346,3 +374,169 @@ async function darAyuda(id){
 
 cargarComentarios();
 
+async function guardarDiario(){
+
+const nombre =
+document.getElementById(
+"nombreDiario"
+).value;
+
+const emocion =
+document.getElementById(
+"emocion"
+).value;
+
+const mensaje =
+document.getElementById(
+"mensajeDiario"
+).value;
+
+if(
+emocion===""
+||
+mensaje===""
+
+){
+
+alert(
+"Completa los campos"
+);
+
+return;
+
+}
+
+const respuesta =
+await fetch(
+
+"http://localhost:3000/diario",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":
+"application/json"
+
+},
+
+body:
+JSON.stringify({
+
+nombre:
+nombre
+||
+"Anónimo",
+
+emocion,
+
+mensaje
+
+})
+
+}
+
+);
+
+alert(
+await respuesta.text()
+);
+
+document.getElementById(
+"mensajeDiario"
+).value="";
+
+cargarDiario();
+
+}
+
+async function cargarDiario(){
+
+const respuesta =
+await fetch(
+"http://localhost:3000/diario"
+);
+
+const datos =
+await respuesta.json();
+
+const lista =
+document.getElementById(
+"listaDiario"
+);
+
+lista.innerHTML="";
+
+datos.forEach(item=>{
+
+lista.innerHTML+=`
+
+<div class="card">
+
+<h3>
+${item.emocion}
+</h3>
+
+<p>
+${item.mensaje}
+</p>
+
+<small>
+${item.nombre}
+</small>
+
+<br>
+
+<small>
+${new Date(
+item.fecha
+).toLocaleString()}
+</small>
+
+</div>
+
+`;
+
+});
+
+}
+
+cargarDiario();
+
+function toggleDiario(){
+
+const contenedor =
+document.getElementById(
+"contenedorDiario"
+);
+
+const boton =
+document.getElementById(
+"btnDiario"
+);
+
+if(
+contenedor.style.display
+==="none"
+){
+
+contenedor.style.display=
+"block";
+
+boton.innerText=
+"Ocultar diarios";
+
+}
+else{
+
+contenedor.style.display=
+"none";
+
+boton.innerText=
+"Ver mis diarios";
+
+}
+
+}
