@@ -10,6 +10,7 @@
 <body>
 
     <div id="pantallaLogin">
+        <img src="logoInicio.png" class="logoLogin">
 
     <h1>PsicoTips Reynosa</h1>
 
@@ -81,9 +82,21 @@
 </div>
 
     <nav class="menu">
-        <button onclick="mostrarSeccion('seccionEmociones')">Emociones</button>
-        <button onclick="mostrarSeccion('seccionTest')">Test</button>
-        <button onclick="mostrarSeccion('seccionPsicologos')">Psicologos</button>
+        <button onclick="mostrarSeccion('seccionEmociones')">
+Emociones
+</button>
+
+<button onclick="mostrarSeccion('seccionTest')">
+Test
+</button>
+
+<button onclick="mostrarSeccion('seccionDiario')">
+Diario emocional
+</button>
+
+<button onclick="mostrarSeccion('seccionPsicologos')">
+Psicólogos
+</button>
     </nav>
 
 
@@ -203,10 +216,70 @@
 
 <div id="resultadoTest"></div>
 
+<h3> Historial emocional</h3>
+
+<div id="historialEmocional"></div>
+
 <p style="font-size: 12px;">
 Este test es orientativo y no reemplaza ayuda profesional 
 </p>
     </div>
+
+    <div
+id="seccionDiario"
+class="seccion"
+style="display:none;"
+>
+
+<h2> Diario emocional</h2>
+
+<input
+id="nombreDiario"
+placeholder="Tu nombre"
+/>
+
+<select id="emocion">
+
+<option value="">¿Cómo te sientes?</option>
+
+<option>Feliz</option>
+<option>Triste</option>
+<option>Ansioso/a</option>
+<option>Estresado/a</option>
+<option>En paz</option>
+
+</select>
+
+<br><br>
+
+<textarea
+id="mensajeDiario"
+placeholder="Escribe cómo te sentiste hoy..."
+></textarea>
+
+<br><br>
+
+<button onclick="guardarDiario()">
+Guardar
+</button>
+
+<button onclick="toggleDiario()"
+id="btnDiario">
+
+ Ver mis diarios
+
+</button>
+
+<div
+id="contenedorDiario"
+style="display:none;"
+>
+
+<div id="listaDiario"></div>
+
+</div>
+
+</div>
 
 <div id="seccionPsicologos" class="seccion" style="display:none;">
 <h2> Psicólogos en Reynosa</h2>
